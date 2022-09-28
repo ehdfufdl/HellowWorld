@@ -12,8 +12,8 @@ public class App {
 		
 		int myAge = 25; // 왼쪽 = 오른쪽 타입이 항상 동일해야한다.
 //		myAge = "스물다섯"; // 컴파일 에러.
-		String 내나이 = "스물다섯";
-		내나이 = "28"; //문자열 28.
+//		String 내나이 = "스물다섯";
+//		내나이 = "28"; //문자열 28.
 
 		int result = myAge + 30;
 		System.out.println(myAge + "값과 30을 더하면 " + result + "입니다.");
@@ -41,5 +41,7 @@ public class App {
 				break;
 		}
 		System.out.println("100을 넘어서는 시점의 sum => " + sum);
+		
+		System.out.println("정상커밋완료.");
 	}
 }
