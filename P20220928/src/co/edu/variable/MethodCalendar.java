@@ -3,10 +3,10 @@ package co.edu.variable;
 public class MethodCalendar {
 
 	public static void main(String[] args) {
-		makeCal(); // 호출.
+		makeCal(3); // 호출.
 	}
 	
-	public static void makeCal(input) {
+	public static void makeCal(int month) {
 		String[] days = {"Sun","Mon","Tue","Wed","Thr","Fri","Sat"};
 		//요일 출력.
 		for(String day : days) {
@@ -15,13 +15,13 @@ public class MethodCalendar {
 		System.out.println();
 		
 		//1일의 위치지정.
-		for(int i=0; i< getFirstDay(8); i++) {
+		for(int i=0; i< getFirstDay(month); i++) {
 			System.out.printf("%4s", " ");
 		}
 		//날짜 출력.
 		for(int i=1; i<=getLastDate(8); i++) {
 			System.out.printf("%4d", i);
-			if((i + getFirstDay(8)) % 7 == 0) {
+			if((i + getFirstDay(month)) % 7 == 0) {
 				System.out.println();
 			}
 		}
@@ -32,6 +32,10 @@ public class MethodCalendar {
 			return 4;
 		}else if(month == 8) {
 			return 1;
+		}else if(month == 7) {
+			return 5;
+		}else if(month == 6) {
+			return 3;
 		}else {
 			return 0;
 		}

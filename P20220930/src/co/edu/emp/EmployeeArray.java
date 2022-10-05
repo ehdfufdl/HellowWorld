@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class EmployeeArray implements EmployeeService {
 	// 저장공간 생성.
 	Employee[] list;
-	int idx;
+	int idx = 0;
 	Scanner scn = new Scanner(System.in);
 
 	@Override
@@ -30,9 +30,9 @@ public class EmployeeArray implements EmployeeService {
 		String name = scn.nextLine();
 		System.out.println("부서>> ");
 		int deptId = Integer.parseInt(scn.nextLine());
-		System.out.println("급여 ");
+		System.out.println("급여>> ");
 		int sal = Integer.parseInt(scn.nextLine());
-		System.out.println("이메일");
+		System.out.println("이메일>> ");
 		String email = scn.nextLine();
 
 		Employee emp = new Employee(eId, name, sal, deptId, email);
@@ -40,17 +40,37 @@ public class EmployeeArray implements EmployeeService {
 	}
 
 	@Override
-	public String search(int employeeId) {
-		return null;
+	public String search(int employeeId) { // 매개값 타입과 반환값 타입을 잘 보고 맞춰야한다.
+		// 입력된 값중에서 찾도록. list[5] = > idx
+		// 100번, 200번, 300번
+		String result = null;
+		for (int i = 0; i < idx; i++) {
+			if (list[i].getEmployeeId() == employeeId) {
+				result = list[i].getName();
+				break;
+			}
+		}
+		return result;
 	}
 
 	@Override
 	public void print() {
 		for (int i = 0; i < idx; i++) {
-			System.out.printf("%5d %10s %7d\n", list[i].getEmployeeId()
-					, list[i].getName()
-					, list[i].getSalary());
+			System.out.printf("%5d %10s %7d\n", list[i].getEmployeeId(), list[i].getName(), list[i].getSalary());
 		}
+	}
+
+	@Override
+	public int searchSal(int employeeId) {
+		// 사번을 입력하면 급여를 반환.
+		int result = -1;
+		for (int i = 0; i < idx; i++) {
+			if (list[i].getEmployeeId() == employeeId) {
+				result = list[i].getSalary();
+				break;
+			}
+		}
+		return result;
 	}
 
 }
