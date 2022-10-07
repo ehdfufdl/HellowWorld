@@ -1,5 +1,7 @@
 package Book;
 
+import java.io.UnsupportedEncodingException;
+
 public class StringGetBytesExample {
 	public static void main(String[] args) {
 		String str = "¾È³çÇÏ¼¼¿ä";
@@ -19,8 +21,10 @@ public class StringGetBytesExample {
 			System.out.println("bytes3.length: " + bytes2.length);
 			String str3 = new String(bytes2, "UTF-8");
 			System.out.println("bytes3->string: " + str2);
-		}catch{
-			
+		}catch(UnsupportedEncodingException e) {
+			e.printStackTrace();
 		}
+			
+		
 	}
 }
